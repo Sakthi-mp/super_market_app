@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+    
+<struts>
+	
+	<package name="default"  extends="struts-default">
+	
+		<action name="login_admin" class="com.login.action.LoginAdminAction"></action>
+		<action name="login_employee" class="com.login.action.LoginEmployeeAction"></action>
+		
+		<action name="onload_login_details" class="com.onload.action.GetLoginDetailAction"></action>
+		<action name="onload_data_action" class="com.onload.action.GetOnloadData"></action>
+		<action name="onload_customerid_product_action" class="com.onload.action.GetCustomerIDAndProductAction"></action>
+		<action name="select_table_action" class="com.showtable.common.action.ShowTableAction"></action>
+		
+		<action name="reset_password" class="com.account.action.ResetPasswordAction"></action>
+		<action name="logout" class="com.logout.action.LogoutAction"></action>
+		
+		<action name="find_customer" class="com.find.action.FindCustomerAction"></action>
+		<action name="find_staff" class="com.find.action.FindStaffAction"></action>
+		<action name="find_vendor" class="com.find.action.FindVendorAction"></action>
+		<action name="find_purchase" class="com.find.action.FindPurchaseAction"></action>
+		<action name="find_sales" class="com.find.action.FindSalesAction"></action>
+		<action name="find_product" class="com.find.action.FindProductAction"></action>
+		<action name="find_invoices" class="com.find.action.FindInvoicesAction"></action>
+		<action name="find_payment" class="com.find.action.FindPaymentAction"></action>
+		
+		<action name="deleted_table_record" class="com.deletedDetail.action.GetDeletedTableRecordAction"></action>
+		
+		<action name="add_customer" class="com.addtotable.action.AddCustomerAction"></action>
+		<action name="add_staff" class="com.addtotable.action.AddStaffAction"></action>
+		<action name="add_vendor" class="com.addtotable.action.AddVendorAction"></action>
+		<action name="add_purchase" class="com.addtotable.action.AddPurchaseAction"></action>
+		<action name="add_invoices" class="com.addtotable.action.AddInvoicesAction"></action>
+		
+		<action name="update_customer" class="com.updatetable.action.UpdateCustomerAction"></action>
+		<action name="update_staff" class="com.updatetable.action.UpdateStaffAction"></action>
+		<action name="update_vendor" class="com.updatetable.action.UpdateVendorAction"></action>
+		<action name="update_purchase" class="com.updatetable.action.UpdatePurchaseAction"></action>
+		<action name="update_invoices" class="com.updatetable.action.UpdateInvoicesAction"></action>
+		<action name="update_payment" class="com.updatetable.action.UpdatePaymentAction"></action>
+		
+		<action name="delete_customer" class="com.deletetablerecord.action.DeleteCustomerAction"></action>
+		<action name="delete_staff" class="com.deletetablerecord.action.DeleteStaffAction"></action>
+		<action name="delete_vendor" class="com.deletetablerecord.action.DeleteVendorAction"></action>
+	</package>
+</struts>
