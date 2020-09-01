@@ -1,6 +1,6 @@
 package com.logout.action;
 
-import com.DBConnection.logout.DBLogout;
+import com.cachedata.login.RedisAddLoginUser;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class LogoutAction extends ActionSupport {
@@ -8,7 +8,7 @@ public class LogoutAction extends ActionSupport {
 
 	@Override
 	public String execute() throws Exception {
-		DBLogout logOut = new DBLogout();
+		RedisAddLoginUser logOut = new RedisAddLoginUser();
 		logOut.logout();
 		return NONE;
 	}

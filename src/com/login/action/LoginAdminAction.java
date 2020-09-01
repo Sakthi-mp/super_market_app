@@ -15,7 +15,10 @@ import org.json.simple.parser.JSONParser;
 
 import com.DBConnection.login.DBAddLoginUser;
 import com.DBConnection.login.DBLoginAdmin;
+import com.cachedata.login.RedisAddLoginUser;
 import com.opensymphony.xwork2.ActionSupport;
+
+import redis.clients.jedis.Jedis;
 
 public class LoginAdminAction extends ActionSupport implements ServletRequestAware,ServletResponseAware {
 	private static final long serialVersionUID = 1L;
@@ -29,7 +32,9 @@ public class LoginAdminAction extends ActionSupport implements ServletRequestAwa
 	
 	
 	DBLoginAdmin db = new DBLoginAdmin();
-	DBAddLoginUser addLoginUser;
+	RedisAddLoginUser addLoginUser;
+	
+//	RedisAddLoginUser addLoginUser;
 	@Override
 	public void setServletResponse(HttpServletResponse Response) {
 		this.response = Response;
@@ -81,8 +86,8 @@ public class LoginAdminAction extends ActionSupport implements ServletRequestAwa
 		
 		if(check == 2) {
 			jsonArr.add("success");
-			addLoginUser = new DBAddLoginUser(adminName, "admin");
-			addLoginUser.addData();
+			addLoginUser = new RedisAddLoginUser(adminName, "admin");
+			addLoginUser.login();			
 		}
 		
 		PrintWriter out = response.getWriter();

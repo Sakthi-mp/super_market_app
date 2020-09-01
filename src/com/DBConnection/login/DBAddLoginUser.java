@@ -13,7 +13,7 @@ public class DBAddLoginUser {
 	private static final String addLoginUser = "INSERT INTO loginDetail(userName,categary,jobName,entryDetail) "
 			                         		 + " VALUES(?,?,?,?)";
 	
-	String userName = "none";
+	String userName = "none";		
 	String categary = "none";
 	String jobName = "none";
 	

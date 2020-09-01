@@ -16,6 +16,7 @@ import org.json.simple.parser.JSONParser;
 import com.DBConnection.login.DBAddLoginUser;
 import com.DBConnection.login.DBLoginAdmin;
 import com.DBConnection.login.DBLoginEmployee;
+import com.cachedata.login.RedisAddLoginUser;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class LoginEmployeeAction extends ActionSupport implements ServletRequestAware,ServletResponseAware {
@@ -29,7 +30,7 @@ public class LoginEmployeeAction extends ActionSupport implements ServletRequest
 	HttpServletResponse response;
 	
 	DBLoginEmployee db = new DBLoginEmployee();
-	DBAddLoginUser addLoginUser;
+	RedisAddLoginUser addLoginUser;
 	@Override
 	public void setServletResponse(HttpServletResponse Response) {
 		this.response = Response;
@@ -81,8 +82,8 @@ public class LoginEmployeeAction extends ActionSupport implements ServletRequest
 			jsonArr.add("success");
 			String emplyeeName = db.getEmployeeName(Integer.parseInt(emloyeeID));
 			String emplyeeJob = db.getJobName(Integer.parseInt(emloyeeID));
-			addLoginUser = new DBAddLoginUser(emplyeeName, "employee", emplyeeJob);
-			addLoginUser.addData();
+			addLoginUser = new RedisAddLoginUser(emplyeeName, "employee", emplyeeJob);
+			addLoginUser.login();
 		}
 		PrintWriter out = response.getWriter();
 		out.println(jsonArr);
