@@ -27,6 +27,8 @@ public class DBResetPassword {
 		}
 	}
 	
+	//Happy Coding
+	
 	public void reset() {
 		try {
 			PreparedStatement statement = connect.prepareStatement(resetPassword);
